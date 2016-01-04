@@ -3,9 +3,9 @@ title: Subscribe
 permalink: /subscribe/
 ---
 
-<p class="lead">About once a week I post free screencasts and articles on Elixir, Ruby, Git, and other content that I hope you'll find helpful.</p>
+<p class="lead">A few times a month I post free screencasts and articles on Elixir, Ruby, Git, and other content that I hope you'll find helpful.</p>
 
-<p class="lead">Enter your email address below and I'll send you an email letting you know when I've got something ready for you. Zero spam.</p>
+<p class="lead">Enter your email address below and I'll send you a note letting you know when I've got something ready. Zero spam.</p>
 
 <!-- Begin MailChimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">

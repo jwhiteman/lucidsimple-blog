@@ -14,7 +14,6 @@ I find interesting. I hope you'll find the content here useful.</p>
   <li><a href="https://github.com/jwhiteman" target="_blank">Github</a></li>
   <li><a href="https://gist.github.com/jwhiteman" target="_blank">Gist</a></li>
   <li><a href="https://twitter.com/lucidsimple" target="_blank">Twitter</a></li>
-  <li><a href="https://www.linkedin.com/pub/james-whiteman/a8/b4b/1a7">Linkedin</a></li>
 </ul>
 
 <p>I'm using the <a href="http://github.com/gfjaru/Kiko">Kiko</a> theme along with <a href="http://jekyllrb.com">Jekyll</a>.</p>

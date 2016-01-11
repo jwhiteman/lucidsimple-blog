@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Elixir: Sending Messages between Remote Nodes"
+title:  "Connecting Remote Nodes in Elixir"
 date:   2016-01-10 23:00:00
 categories: Elixir
 comments: true

@@ -4,6 +4,7 @@
 
 # Basic
 name:               "Lucid Simple"
+site_name:          "Lucid Simple"
 
 # URL
 baseurl:            ""

@@ -3,6 +3,7 @@ layout: post
 title:  "Connecting Remote Nodes in Elixir"
 date:   2016-01-10 23:00:00
 categories: Elixir
+description: "Connecting Remote Nodes in Elixir"
 comments: true
 ---
 

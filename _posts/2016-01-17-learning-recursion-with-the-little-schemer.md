@@ -65,7 +65,7 @@ This is more or less what it feels like to work through chapter 9 for the first 
 You can download Racket <a href="http://racket-lang.org/" target="_blank">here</a>. Just run the Scheme
 code you write as Racket and everything should still work without changing anything else.
 
-**9**. If you work through every exercise in the book, you'll still need to investigate how <a href="https://en.wikipedia.org/wiki/Tail_call" target="_blank">Tail Recursion</a> works. Almost all the algorithms you'll
+**9**. If you work through every exercise in the book, you'll still need to investigate how <a href="https://en.wikipedia.org/wiki/Tail_call" target="_blank">Tail Recursion</a> works on your own. Almost all the algorithms you'll
 learn in the Schemer series will be body recursive. Although, that's <a href="http://www.erlang.org/doc/efficiency_guide/myths.html" target="_blank">not necessarily the end of the world</a>.
 
 **10**. If you're really ambtious, or you can't be bothered to do the exercises in the book, then you

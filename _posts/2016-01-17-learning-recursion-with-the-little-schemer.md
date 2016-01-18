@@ -60,6 +60,8 @@ This is more or less what it feels like to work through chapter 9 for the first 
 
 [![Chapter 9](/assets/yodaluke.gif)](/assets/yodaluke.gif)
 
+(NOTE: It's not a coincidence that Luke looks like an upside down lambda here.)
+
 **8**. <a href="http://racket-lang.org/new-name.html" target="_blank">Scheme was recently renamed to Racket</a>, but that shouldn't change anything for you.
 
 You can download Racket <a href="http://racket-lang.org/" target="_blank">here</a>. Just run the Scheme

@@ -93,4 +93,4 @@ And that using Elixir often feels like bringing a gun to a knife fight.
 
 ### NOTES
 
-**1**. Elixir and Erlang aren't the only languages with pattern matching, nor is the concept necessarily new. Check out <a href="https://www.haskell.org/tutorial/patterns.html" target="_blank">Haskell</a>, <a href="http://www.learnprolognow.org/" target="_blank">Prolog</a> and <a href="http://www2.lib.uchicago.edu/keith/ocaml-class/pattern-matching.html" target="_blank">OCaml</a> if you're unfamiliar with them.
+**1**. Elixir and Erlang aren't the only languages with pattern matching. Check out <a href="https://www.haskell.org/tutorial/patterns.html" target="_blank">Haskell</a>, <a href="http://www.learnprolognow.org/" target="_blank">Prolog</a> and <a href="http://www2.lib.uchicago.edu/keith/ocaml-class/pattern-matching.html" target="_blank">OCaml</a> if you're unfamiliar with them.

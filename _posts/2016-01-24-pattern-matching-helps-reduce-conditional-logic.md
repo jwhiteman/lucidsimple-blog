@@ -55,9 +55,9 @@ And that's where a lot of brain cycles start to burn up: the conditions themselv
 parts of your domain logic, and they may even be simple when considered one-at-a-time. But when expressed
 as a whole it somehow transforms itself into an unmaintainable morass.
 
-If you're clever, then you can mitigate the problem with polymorphism and other OO fare. 
+If you're clever, then you can mitigate the problem with polymorphism and other OO fare.
 
-But those techniques exact a penalty, too: If you design things well, then you'll pay with indirection.
+But those techniques exact a penalty, too: If you design things correctly, then you'll pay with indirection.
 If you design things poorly, then you will still pay with indirection, but you also end up with <a href="https://pbs.twimg.com/media/BiJPfXBCIAAShKW.jpg" target="_blank">the wrong abstractions</a>.
 
 As you might have guessed, this is all just a setup to demonstrate how a language with pattern matching (e.g Elixir)
@@ -74,7 +74,7 @@ The simplicity of this solution makes it the spiritual equivalent of this gif:
 
 ![Indiana Jones(/assets/jones.gif)](/assets/jones.gif)
 
-Note how pattern matching allows each condition to live on its own at "top level":
+Note how pattern matching allows each condition to live on its own at the top level:
 
 {% highlight elixir %}
 def fun(5, 3), do: 7

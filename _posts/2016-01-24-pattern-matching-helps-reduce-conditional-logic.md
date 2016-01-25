@@ -93,4 +93,6 @@ And my second point is that using Elixir often feels like bringing a gun to a kn
 
 ### NOTES
 
-**1**. Elixir and Erlang aren't the only languages with pattern matching. Check out <a href="https://www.haskell.org/tutorial/patterns.html" target="_blank">Haskell</a>, <a href="http://www.learnprolognow.org/" target="_blank">Prolog</a>, <a href="http://www2.lib.uchicago.edu/keith/ocaml-class/pattern-matching.html" target="_blank">OCaml</a> or <a href="https://doc.rust-lang.org/book/patterns.html" target="_blank">Rust</a> if you're unfamiliar with them.
+**1**. Elixir and Erlang aren't the only languages with pattern matching. Check out <a href="https://www.haskell.org/tutorial/patterns.html" target="_blank">Haskell</a>, <a href="http://www.learnprolognow.org/" target="_blank">Prolog</a>, <a href="http://www2.lib.uchicago.edu/keith/ocaml-class/pattern-matching.html" target="_blank">OCaml</a> or <a href="https://doc.rust-lang.org/book/patterns.html" target="_blank">Rust</a> if you are unfamiliar with them.
+
+**2**. The list of languages above in note 1 <a href="https://www.reddit.com/r/elixir/comments/42k0v2/elixir_pattern_matching_helps_reduce_conditional/czboyqc" target="_blank">is not exhaustive</a>.

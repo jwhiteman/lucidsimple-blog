@@ -53,7 +53,7 @@ that they would hope to minimize.
 
 And that's where a lot of brain cycles start to burn up: the conditions themselves are legitimate 
 parts of your domain logic, and they may even be simple when considered one-at-a-time. But when expressed
-as a whole it somehow transforms itself into an unmaintanable morass.
+as a whole it somehow transforms itself into an unmaintainable morass.
 
 If you're clever, then you can mitigate the problem with polymorphism and other OO fare. 
 

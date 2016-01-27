@@ -89,7 +89,7 @@ That would be absurd.
 
 My main point is that the nastiness of nested conditionals often evaporates when using a language that supports pattern matching.
 
-And my second point is that using Elixir often feels like bringing a gun to a knife fight.
+And that using Elixir often feels like bringing a gun to a knife fight.
 
 ### NOTES
 

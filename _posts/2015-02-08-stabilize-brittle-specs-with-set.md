@@ -128,3 +128,5 @@ Still, `match_array` is pretty handy when you are writing specs. I've used it at
 In the case when you want a framework agnostic way to achieve the same results, or if you're writing your own matcher, then Set would be useful.
 
 -- Jim
+
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>

@@ -149,3 +149,5 @@ the spec and poking things with Wireshark is the best combination.
 [wireshark]: https://www.wireshark.org/download.html
 [erbits]: http://www.erlang.org/documentation/doc-5.6/doc/programming_examples/bit_syntax.html
 [practice]: http://maradns.samiam.org/multiple.qdcount.html
+
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>

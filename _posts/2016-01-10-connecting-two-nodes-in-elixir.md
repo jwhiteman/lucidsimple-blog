@@ -94,3 +94,5 @@ Here are some other articles you might be intesrested in:
 - <a href="http://learnyousomeerlang.com/distribunomicon" target="_blank">Distribunomicon</a>
 - <a href="http://thesoftjaguar.com/posts/2014/06/18/rabbitmq-cluster/" target="_blank">My trip through RabbitMQ clustering</a>
 - <a href="http://elixir-lang.org/getting-started/mix-otp/distributed-tasks-and-configuration.html" target="_blank">Distributed Tasks and Configuration</a>
+
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>

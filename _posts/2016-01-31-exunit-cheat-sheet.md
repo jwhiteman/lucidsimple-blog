@@ -278,7 +278,7 @@ Getting consistent results goes a long way in squashing pesky errors that only o
 
 I wrote this post for myself so that I can easily lookup the techniques I use frequently but still manage to forget.
 
-I hope you will find at least soem use from it.
+I hope you will find at least some use from it.
 
 Here are some other articles you might be interested in:
 

@@ -5,6 +5,12 @@ date:   2008-08-22
 categories: Design Patterns
 ---
 
+> Author note: This post is old and I don't necessarily agree with everything here.
+>
+> Still, the code is fun and I get a modest number of visitors for this post.
+>
+> Without further ado...
+
 I was reading [Object Design][object-design] a few months back and came upon an example illustrating double dispatch.
 
 The example was showing a simple way to model [Rock, Paper, Scissors][rps]. Here is the code translated to Ruby from Java:
@@ -98,3 +104,5 @@ james_whiteman.beats? Scissors.new
 
 [object-design]: http://www.textbooks.com/BooksDescription.php?BKN=580415&mcid=XCS-Shoppingdotcom-9780201379433-U&utm_medium=shoppingengine&utm_term=9780201379433U&utm_source=shoppingdotcom&
 [rps]: https://en.wikipedia.org/wiki/Rock-paper-scissors
+
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>

@@ -5,6 +5,8 @@ date:   2008-06-26 08:00:00
 categories: Ruby
 ---
 
+> Author note: This post is old.
+
 A couple of days ago Josh Susser posted a very [attractive recursive lambda][susser] in his blog.
 
 A couple of people in the comments said that a recursive lambda is a prime opportunity to use the Y-combinator.
@@ -36,5 +38,7 @@ end
 Well...it is completely anonymous now. Are we having fun yet? Obviously, there are more readable ways to use Y but none of them result in anything nicer than what Josh wrote.
 
 This is basically a long way of saying avoid overly complicated code. You can never justify masturbatory programming because you're using strict FP -- especially in Ruby and even more so in Rails.
+
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>
 
 [susser]: http://blog.hasmanythrough.com/2008/6/20/recursive-lambda

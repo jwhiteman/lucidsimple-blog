@@ -82,3 +82,5 @@ If you don't want to use Dr. Racket, you might be able to use <a href="https://g
 It's not a production ready Scheme (and never will be), but it will run all of the examples in the book,
 and it's also written in Elixir.
 
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>
+

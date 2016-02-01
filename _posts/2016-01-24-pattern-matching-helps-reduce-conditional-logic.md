@@ -95,3 +95,5 @@ And that using Elixir often feels like bringing a gun to a knife fight.
 
 **1**. Elixir and Erlang aren't the only languages with pattern matching. If you like Elixir, then you might find <a href="http://www2.lib.uchicago.edu/keith/ocaml-class/home.html" target="_blank">OCaml</a> interesting. Others <a href="https://www.reddit.com/r/elixir/comments/42k0v2/elixir_pattern_matching_helps_reduce_conditional/czbgehl" target="_blank">have their own favorites</a>.
 
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>
+

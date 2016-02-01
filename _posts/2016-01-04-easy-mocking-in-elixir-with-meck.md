@@ -195,4 +195,4 @@ less of an issue. Or not. I'm still figuring this out myself.
 
 Regardless, it's a pretty slick library that feels comfortable, especially coming from Ruby.
 
-What are your thoughts?
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>

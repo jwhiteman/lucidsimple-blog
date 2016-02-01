@@ -16,7 +16,7 @@ comments: true
 
 Object Oriented programmers are often preoccupied with avoiding conditional logic.
 
-It is a topic that a lot of <a href="http://www.sandimetz.com/">smart</a> <a href="http://www.martinfowler.com/">people</a> have spent a <a href="http://stackoverflow.com/questions/1337565/avoiding-if-statements">lot of energy on</a>, and the concept 
+It is a topic that <a href="http://devblog.avdi.org/2013/08/26/confident-ruby-is-finished/">a lot of</a> <a href="http://www.sandimetz.com/">smart</a> <a href="http://www.martinfowler.com/">people</a> have spent a <a href="http://stackoverflow.com/questions/1337565/avoiding-if-statements">lot of energy on</a>, and the concept 
 even <a href="http://antiifcampaign.com/">has its own campaign</a>.
 
 Take a look at this example:

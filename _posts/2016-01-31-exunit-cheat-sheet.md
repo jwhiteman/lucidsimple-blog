@@ -276,7 +276,7 @@ def project do
 end
 {% endhighlight %}
 
-To get things started again, you only need to call 
+To get things started again you only need to call start:
 
 {% highlight elixir %}
 Application.start(:your_app_name)
@@ -296,7 +296,7 @@ I have used both and they work very well, but you'll need to take care that you'
 
 <h3 id="seed">10. Use the Test Seed to Fight Intermittent Errors</h3>
 
-Intermittent errors are probably unavoidable, especially if you're writing concurrent programs.
+Intermittent errors are probably unavoidable if you're writing concurrent programs.
 
 To help fight this, ExUnit tests are run in a random order via a seed integer.
 
@@ -347,4 +347,4 @@ Here are some other articles you might be interested in:
 - <a href="https://gist.github.com/timruffles/036b9782472e5dd0844d" target="_blank">Approaches to Dependency Injection in Elixir</a>
 - <a href="http://elixir-lang.org/docs/master/ex_unit/ExUnit.html" target="_blank">The official ExUnit docs</a>
 - <a href="/2016/01/04/easy-mocking-in-elixir-with-meck.html">Easy Mocking in Elixir with Meck<a/>
-- <a href="/2014/08/14/binary-fixtures-with-wireshark.html">Binary Fixtures with Wireshark</a>
+- <a href="/2014/08/14/binary-fixtures-with-wireshark.html">Creating Binary Fixtures with Wireshark</a>

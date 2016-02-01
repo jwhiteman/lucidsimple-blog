@@ -241,7 +241,7 @@ but in case it's not obvious:
 - `setup_all` is only run once
 - `on_exit` lives in a setup block and takes a function as an argument
 
-You'll use `on_exit` in the same way you might use _teardown_ or _after_ in another language or test framework.
+You'll use `on_exit` in the same way you might use _teardown_ in a different language or test framework.
 
 
 <a href="#toc">back to the top</a>

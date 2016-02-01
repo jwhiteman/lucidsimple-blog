@@ -3,7 +3,7 @@ title: About
 permalink: /about/
 ---
 
-<p class="lead">Hello there, this is the programming blog for my small consultancy <a href="http://lucidsimple.com">LucidSimple.com</a>.</p>
+<p class="lead">Hello there, this is the programming blog<a href="http://lucidsimple.com">LucidSimple.com</a>, which is my small consultancy.</p>
 
 <p>I post articles and screencasts on Elixir, Ruby, Git, and other topics
 I find interesting. I hope you'll find the content here useful.</p>

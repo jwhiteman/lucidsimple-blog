@@ -258,8 +258,8 @@ ExUnit.start()
 Application.stop(:your_app_name)
 {% endhighlight %}
 
-This is sometimes beneficial if you find that your application is fighting
-a particular unit test. 
+This is sometimes beneficial if you find that your running application is competing
+with your 
 
 Thankfully, you shouldn't have to do this too much
 if you're properly using your application config files. But it's still nice

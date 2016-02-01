@@ -113,7 +113,7 @@ mix test --exclude wip
 I don't like it when my test output is littered with print or log messages.
 
 If you have Elixir version 1.1+ then you can use `ExUnit.CaptureIO` to keep
-things clean (<a href="http://elixir-lang.org/docs/v1.0/ex_unit/ExUnit.CaptureIO.html#capture_io/3" target="_blank">among other uses</a>):
+things clean (<a href="http://elixir-lang.org/docs/v1.0/ex_unit/ExUnit.CaptureIO.html#capture_io/3">among other uses</a>):
 
 {% highlight elixir %}
 defmodule SomeModuleTest do
@@ -162,7 +162,7 @@ case :gen_tcp.connect('localhost', 6379, []) do
 end
 {% endhighlight %}
 
-This <a href="https://github.com/whatyouhide/redix/blob/master/test/test_helper.exs#L3-L8" target="_blank">example</a> comes from <a href="https://github.com/whatyouhide" target="_blank">Andrea Leopardi's</a> great <a href="https://github.com/whatyouhide/redix" target="_blank">Redix</a> project.
+This <a href="https://github.com/whatyouhide/redix/blob/master/test/test_helper.exs#L3-L8">example</a> comes from <a href="https://github.com/whatyouhide">Andrea Leopardi's</a> great <a href="https://github.com/whatyouhide/redix">Redix</a> project.
 
 He uses `:get_tcp` to check that he can connect to port 6379. If the connection is successful, he closes the socket and the test run continues. If the connection is not successful, he uses `Mix.raise` with a helpful error message to shut things down.
 
@@ -175,7 +175,7 @@ Pretty cool.
 It's not a problem to create support modules directly in your test files, but if they get too big then
 you may want to move them to their own directory.
 
-This technique comes from <a href="https://github.com/mikepack" target="_blank">Mike Pack's</a> <a href="https://github.com/mikepack/poolboy_queue" target="_blank">Poolboy Queue</a> library:
+This technique comes from <a href="https://github.com/mikepack">Mike Pack's</a> <a href="https://github.com/mikepack/poolboy_queue">Poolboy Queue</a> library:
 
 {% highlight elixir %}
 # test_helper.exs
@@ -196,13 +196,13 @@ Once again, this isn't ExUnit specific, but this simple technique pops up fairly
 
 <h3 id="assertions">6. Workhorse Assertions</h3>
 
-The best source on ExUnit assertions is still <a href="http://elixir-lang.org/docs/stable/ex_unit/ExUnit.Assertions.html" target="_blank">the docs at elixir-lang.org</a>.
+The best source on ExUnit assertions is still <a href="http://elixir-lang.org/docs/stable/ex_unit/ExUnit.Assertions.html">the docs at elixir-lang.org</a>.
 
-However, I use the following 3 assertions roughly <a href="https://en.wikipedia.org/wiki/Pareto_principle" target="_blank">80% of the time</a>:
+However, I use the following 3 assertions roughly <a href="https://en.wikipedia.org/wiki/Pareto_principle">80% of the time</a>:
 
-- <a href="http://elixir-lang.org/docs/v1.0/ex_unit/ExUnit.Assertions.html#assert/1" target="_blank">assert</a>
-- <a href="http://elixir-lang.org/docs/v1.0/ex_unit/ExUnit.Assertions.html#refute/1" target="_blank">refute</a>
-- <a href="http://elixir-lang.org/docs/v1.0/ex_unit/ExUnit.Assertions.html#assert_receive/3" target="_blank">assert_receive</a>
+- <a href="http://elixir-lang.org/docs/v1.0/ex_unit/ExUnit.Assertions.html#assert/1">assert</a>
+- <a href="http://elixir-lang.org/docs/v1.0/ex_unit/ExUnit.Assertions.html#refute/1">refute</a>
+- <a href="http://elixir-lang.org/docs/v1.0/ex_unit/ExUnit.Assertions.html#assert_receive/3">assert_receive</a>
 
 They are mercifully self-explanatory:
 
@@ -227,14 +227,14 @@ end
 
 The final example  might warrant an explanation: I'm asserting that my test process will eventually receive the term `{:result, "some-result"}` within 100 milliseconds. If the expected message doesn't arrive on time, the assertion will fail.
 
-`assert_receive` and its cousin <a href="http://elixir-lang.org/docs/v1.0/ex_unit/ExUnit.Assertions.html#assert_received/2" target="_blank">assert_received</a> are pretty crucial
+`assert_receive` and its cousin <a href="http://elixir-lang.org/docs/v1.0/ex_unit/ExUnit.Assertions.html#assert_received/2">assert_received</a> are pretty crucial
 given that message passing is at the heart of Elixir and Erlang.
 
 <a href="#toc">back to the top</a>
 
 <h3 id="callbacks">7. Setup and Other Callbacks</h3>
 
-I really can't do any better than the great explanation at the <a href="http://elixir-lang.org/docs/stable/ex_unit/ExUnit.Callbacks.html" target="_blank">elixir-lang.org</a> site,
+I really can't do any better than the great explanation at the <a href="http://elixir-lang.org/docs/stable/ex_unit/ExUnit.Callbacks.html">elixir-lang.org</a> site,
 but in case it's not obvious:
 
 - `setup` runs before each test
@@ -286,11 +286,11 @@ Application.start(:your_app_name)
 
 <h3 id="mocking">9. VCR and Mocking</h3>
 
-If you're coming from the Ruby world and would like something similar to <a href="https://github.com/vcr/vcr" target="_blank">VCR</a> to fake HTTP responses, then check out <a href="https://github.com/parroty/exvcr" target="_blank">ExVCR</a>.
+If you're coming from the Ruby world and would like something similar to <a href="https://github.com/vcr/vcr">VCR</a> to fake HTTP responses, then check out <a href="https://github.com/parroty/exvcr">ExVCR</a>.
 
-Similarly, you can use <a href="https://github.com/eproxus/meck" target="_blank">Meck</a> if you want a nice mocking library.
+Similarly, you can use <a href="https://github.com/eproxus/meck">Meck</a> if you want a nice mocking library.
 
-I have used both and they work very well, but you'll need to take care that you're not straying too far from <a href="http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/" target="_blank">the Elixir way</a> if you use them.
+I have used both and they work very well, but you'll need to take care that you're not straying too far from <a href="http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/">the Elixir way</a> if you use them.
 
 <a href="#toc">back to the top</a>
 
@@ -331,7 +331,7 @@ If you have a name instead of a pid, you can use
 process_name |> Process.whereis |> Process.alive?
 {% endhighlight %}
 
-It would probably be worth your time to check out all the <a href="http://elixir-lang.org/docs/v1.1/elixir/Process.html" target="_blank">cool things</a> that Process can do when you get a chance.
+It would probably be worth your time to check out all the <a href="http://elixir-lang.org/docs/v1.1/elixir/Process.html">cool things</a> that Process can do when you get a chance.
 
 <a href="#toc">back to the top</a>
 
@@ -343,8 +343,8 @@ I hope you will find at least some use from it.
 
 Here are some other articles you might be interested in:
 
-- <a href="http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/" target="_blank">Mocks and Explicit Contracts</a>
-- <a href="https://gist.github.com/timruffles/036b9782472e5dd0844d" target="_blank">Approaches to Dependency Injection in Elixir</a>
-- <a href="http://elixir-lang.org/docs/master/ex_unit/ExUnit.html" target="_blank">The official ExUnit docs</a>
+- <a href="http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/">Mocks and Explicit Contracts</a>
+- <a href="https://gist.github.com/timruffles/036b9782472e5dd0844d">Approaches to Dependency Injection in Elixir</a>
+- <a href="http://elixir-lang.org/docs/master/ex_unit/ExUnit.html">The official ExUnit docs</a>
 - <a href="/2016/01/04/easy-mocking-in-elixir-with-meck.html">Easy Mocking in Elixir with Meck<a/>
 - <a href="/2014/08/14/binary-fixtures-with-wireshark.html">Creating Binary Fixtures with Wireshark</a>

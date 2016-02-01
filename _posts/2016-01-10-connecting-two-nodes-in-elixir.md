@@ -17,7 +17,7 @@ comments: true
 
 ### Notes
 
-The <a href="http://www.erlang.org/doc/man/epmd.html" target="_blank">Erlang Port Mapper Daemon</a> uses port 4369 so you'll need that open.
+The <a href="http://www.erlang.org/doc/man/epmd.html">Erlang Port Mapper Daemon</a> uses port 4369 so you'll need that open.
 
 You'll also need to earmark a port in your security group for each node you'll be using.
 
@@ -47,7 +47,7 @@ In the above example, there is nothing stopping `MINPORT` and `MAXPORT` from bei
 If you've set things up correctly, your nodes will end up using the ports you want, rather than selecting
 an arbitrary port from the ephemeral range.
 
-You can test this with the <a href="http://www.erlang.org/doc/man/net_adm.html" target="_blank">net_adm</a> module:
+You can test this with the <a href="http://www.erlang.org/doc/man/net_adm.html">net_adm</a> module:
 
 {% highlight elixir %}
 :net_adm.names
@@ -81,7 +81,7 @@ This would result in `I got a message! hello from node 2!` being printed to stdo
 In reality, I wouldn't use `spawn` and `:global` in this manner. But this is a convenient way to demonstrate the the nodes
 are connected and can communicate.
 
-As I stated in the video, <a href="http://stackoverflow.com/questions/13868214/what-are-security-risks-when-running-an-erlang-cluster" target="_blank">you have to be careful with security here</a>. Owning one Elixir/Erlang node generally means you own all of them. Keeping as much as you can safe and secure behind your firewall is probably the the safest bet.
+As I stated in the video, <a href="http://stackoverflow.com/questions/13868214/what-are-security-risks-when-running-an-erlang-cluster">you have to be careful with security here</a>. Owning one Elixir/Erlang node generally means you own all of them. Keeping as much as you can safe and secure behind your firewall is probably the the safest bet.
 
 ### Wrapup
 
@@ -91,8 +91,8 @@ If I got something wrong, please let me know in the comments below or send me an
 
 Here are some other articles you might be intesrested in:
 
-- <a href="http://learnyousomeerlang.com/distribunomicon" target="_blank">Distribunomicon</a>
-- <a href="http://thesoftjaguar.com/posts/2014/06/18/rabbitmq-cluster/" target="_blank">My trip through RabbitMQ clustering</a>
-- <a href="http://elixir-lang.org/getting-started/mix-otp/distributed-tasks-and-configuration.html" target="_blank">Distributed Tasks and Configuration</a>
+- <a href="http://learnyousomeerlang.com/distribunomicon">Distribunomicon</a>
+- <a href="http://thesoftjaguar.com/posts/2014/06/18/rabbitmq-cluster/">My trip through RabbitMQ clustering</a>
+- <a href="http://elixir-lang.org/getting-started/mix-otp/distributed-tasks-and-configuration.html">Distributed Tasks and Configuration</a>
 
-<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe">you may want to consider subscribing</a>.</div>

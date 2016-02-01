@@ -39,6 +39,6 @@ Well...it is completely anonymous now. Are we having fun yet? Obviously, there a
 
 This is basically a long way of saying avoid overly complicated code. You can never justify masturbatory programming because you're using strict FP -- especially in Ruby and even more so in Rails.
 
-<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe">you may want to consider subscribing</a>.</div>
 
 [susser]: http://blog.hasmanythrough.com/2008/6/20/recursive-lambda

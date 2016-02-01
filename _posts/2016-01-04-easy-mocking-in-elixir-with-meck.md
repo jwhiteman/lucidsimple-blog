@@ -17,7 +17,7 @@ comments: true
 
 <iframe src="https://player.vimeo.com/video/150702113" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/150702113">Easy Mocking in Elixir with Meck</a> from <a href="https://vimeo.com/user29282688">Jim Whiteman</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
-You can grab the code from the video <a href="https://github.com/jwhiteman/lucid-simple-projects" target="_blank">here</a>.
+You can grab the code from the video <a href="https://github.com/jwhiteman/lucid-simple-projects">here</a>.
 
 ### Using Meck
 
@@ -109,7 +109,7 @@ end
 {% endhighlight %}
 
 `:meck.new` creates a new mocked module based on what you pass in. It has a
-<a href="https://github.com/eproxus/meck/blob/master/src/meck.erl#L148" target="_blank">decent
+<a href="https://github.com/eproxus/meck/blob/master/src/meck.erl#L148">decent
 number of options on its own</a>.
 
 `:meck.expect` is where the magic happens. You pass in the module and function
@@ -179,10 +179,10 @@ end
 
 Not too shabby.
 
-Actually, <a href="https://github.com/jjh42" target="_blank">jjh42's</a> <a href="https://github.com/jjh42/mock" target="_blank">nice Elixir wrapper for mech</a> <a href="https://github.com/jjh42/mock/blob/master/lib/mock.ex#L40">does something similar.</a> But it wasn't too difficult to roll something simple for ourselves.
+Actually, <a href="https://github.com/jjh42">jjh42's</a> <a href="https://github.com/jjh42/mock">nice Elixir wrapper for mech</a> <a href="https://github.com/jjh42/mock/blob/master/lib/mock.ex#L40">does something similar.</a> But it wasn't too difficult to roll something simple for ourselves.
 
 At any rate, there is a ton more you can do with Meck. If you'd like to use it,
-it would be a good use of your time to take a look at <a href="https://github.com/eproxus/meck/blob/master/README.md" target="_blank">the project's README</a>.
+it would be a good use of your time to take a look at <a href="https://github.com/eproxus/meck/blob/master/README.md">the project's README</a>.
 
 ### Wrapup
 
@@ -195,4 +195,4 @@ less of an issue. Or not. I'm still figuring this out myself.
 
 Regardless, it's a pretty slick library that feels comfortable, especially coming from Ruby.
 
-<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe">you may want to consider subscribing</a>.</div>

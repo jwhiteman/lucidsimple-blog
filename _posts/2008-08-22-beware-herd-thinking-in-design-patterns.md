@@ -105,4 +105,4 @@ james_whiteman.beats? Scissors.new
 [object-design]: http://www.textbooks.com/BooksDescription.php?BKN=580415&mcid=XCS-Shoppingdotcom-9780201379433-U&utm_medium=shoppingengine&utm_term=9780201379433U&utm_source=shoppingdotcom&
 [rps]: https://en.wikipedia.org/wiki/Rock-paper-scissors
 
-<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe">you may want to consider subscribing</a>.</div>

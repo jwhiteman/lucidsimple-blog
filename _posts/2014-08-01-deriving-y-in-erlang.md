@@ -551,4 +551,4 @@ science book I've ever read.
 [lil-schemer]: http://www.ccs.neu.edu/home/matthias/BTLS
 [ruby-fp]: https://github.com/jwhiteman/jimtron-fp
 
-<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe">you may want to consider subscribing</a>.</div>

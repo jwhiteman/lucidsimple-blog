@@ -16,8 +16,8 @@ comments: true
 
 Object Oriented programmers are often preoccupied with avoiding conditional logic.
 
-It is a topic that a lot of <a href="http://www.sandimetz.com/" target="_blank">smart</a> <a href="http://www.martinfowler.com/" target="_blank">people</a> have spent a <a href="http://stackoverflow.com/questions/1337565/avoiding-if-statements" target="_blank">lot of energy on</a>, and the concept 
-even <a href="http://antiifcampaign.com/" target="_blank">has its own campaign</a>.
+It is a topic that a lot of <a href="http://www.sandimetz.com/">smart</a> <a href="http://www.martinfowler.com/">people</a> have spent a <a href="http://stackoverflow.com/questions/1337565/avoiding-if-statements">lot of energy on</a>, and the concept 
+even <a href="http://antiifcampaign.com/">has its own campaign</a>.
 
 Take a look at this example:
 
@@ -58,7 +58,7 @@ as a whole it somehow transforms itself into an unmaintainable morass.
 If you're clever, then you can mitigate the problem with polymorphism and other OO fare.
 
 But those techniques exact a penalty, too: If you design things correctly, then you'll pay with indirection.
-If you design things poorly, then you will still pay with indirection, but you also end up with <a href="https://pbs.twimg.com/media/BiJPfXBCIAAShKW.jpg" target="_blank">the wrong abstractions</a>.
+If you design things poorly, then you will still pay with indirection, but you also end up with <a href="https://pbs.twimg.com/media/BiJPfXBCIAAShKW.jpg">the wrong abstractions</a>.
 
 As you might have guessed, this is all just a setup to demonstrate how a language with pattern matching (e.g Elixir)
 handles this problem:
@@ -84,7 +84,7 @@ def fun(_, y), do: y
 
 You can parse each case individually without the mental gymnastics needed to keep track of which conditional branch you're in.
 
-To be clear, this isn't to say that you should avoid <a href="http://elixir-lang.org/getting-started/case-cond-and-if.html" target="_blank">conditionals in Elixir</a>.
+To be clear, this isn't to say that you should avoid <a href="http://elixir-lang.org/getting-started/case-cond-and-if.html">conditionals in Elixir</a>.
 That would be absurd.
 
 My main point is that the nastiness of nested conditionals often evaporates when using a language that supports pattern matching.
@@ -93,7 +93,7 @@ And that using Elixir often feels like bringing a gun to a knife fight.
 
 ### NOTES
 
-**1**. Elixir and Erlang aren't the only languages with pattern matching. If you like Elixir, then you might find <a href="http://www2.lib.uchicago.edu/keith/ocaml-class/home.html" target="_blank">OCaml</a> interesting. Others <a href="https://www.reddit.com/r/elixir/comments/42k0v2/elixir_pattern_matching_helps_reduce_conditional/czbgehl" target="_blank">have their own favorites</a>.
+**1**. Elixir and Erlang aren't the only languages with pattern matching. If you like Elixir, then you might find <a href="http://www2.lib.uchicago.edu/keith/ocaml-class/home.html">OCaml</a> interesting. Others <a href="https://www.reddit.com/r/elixir/comments/42k0v2/elixir_pattern_matching_helps_reduce_conditional/czbgehl">have their own favorites</a>.
 
-<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe">you may want to consider subscribing</a>.</div>
 

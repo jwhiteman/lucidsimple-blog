@@ -129,4 +129,4 @@ In the case when you want a framework agnostic way to achieve the same results, 
 
 -- Jim
 
-<div class="cta">Did you find this post helpful? If so, <a href="/subscribe" target="_blank">you may want to consider subscribing</a>.</div>
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe">you may want to consider subscribing</a>.</div>

@@ -259,7 +259,7 @@ Application.stop(:your_app_name)
 {% endhighlight %}
 
 This is sometimes beneficial if you find that your running application is competing
-with your 
+with your unit tests.
 
 Thankfully, you shouldn't have to do this too much
 if you're properly using your application config files. But it's still nice

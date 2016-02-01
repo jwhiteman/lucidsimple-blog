@@ -39,7 +39,7 @@ ExUnit.start()
 {% endhighlight %}
 
 Then you can use a tag to mark it as pending which will cause it to be skipped
-when you run `mix test`:
+when you run `mix test:`
 
 
 {% highlight elixir %}
@@ -47,7 +47,7 @@ defmodule SomeModuleTest do
   use ExUnit.Case
 
   @tag :pending
-  test "ignorance is strength" do
+  test "my pending test" do
     assert 2 + 2 == 5
   end
 end
@@ -82,12 +82,12 @@ defmodule SomeModuleTest do
   end
 
   @tag :pending
-  test "ignorance is strength" do
+  test "my pending test" do
     assert 2 + 2 == 5
   end
 
   @tag :wip
-  test "my great new feature" do
+  test "my work in progress test" do
     assert 2 + 2 == 4
   end
 end
@@ -98,7 +98,7 @@ end
 If you read the output above, you'll see that only 1 of the three
 tests ran.
 
-In this case, only tags marked `wip` were run.
+In this case, only tests marked `wip` were run.
 
 Similarly, you could _exclude_ your WIP tests this way:
 
@@ -132,11 +132,11 @@ end
 {% endhighlight %}
 
 If you wrap the noise producing parts in a function and pass it
-to `capture_io`, then the output will be suppressed.
+to `capture_io,` then the output will be suppressed.
 
 In the above example "RAWR" will _not_ end up with the test results.
 
-Don't fret If your version of Elixir doesn't have CaptureIO; <a href="https://github.com/whatyouhide/redix/blob/master/test/test_helper.exs#L10-L18" target="blank">Other techniques may still work</a>.
+Don't fret If your version of Elixir doesn't have CaptureIO. <a href="https://github.com/whatyouhide/redix/blob/master/test/test_helper.exs#L10-L18" target="blank">Other techniques may still work</a>.
 
 <a href="#toc">back to the top</a>
 
@@ -188,7 +188,7 @@ Enum.each files, fn(file) ->
 end
 {% endhighlight %}
 
-He uses `File.ls` to fetch the names of all of the files living under `test/support,` and then applies `Code.require_file` to each one.
+He uses `File.ls` to fetch the names of all of the files living under `test/support` and then applies `Code.require_file` to each one.
 
 Once again, this isn't ExUnit specific, but this simple technique pops up fairly frequently in my own projects.
 
@@ -307,6 +307,12 @@ in the _exact same order_ using that seed as a flag:
 mix test --seed <the-seed-that-triggered-errors>
 ```
 
+The seed will be printed at the bottom of the test output in the form of
+
+```bash
+Randomized with seed <THE-SEED-VALUE>
+```
+
 ![Using the Seed(/assets/seed.png)](/assets/seed.png)
 
 If you look at the output above, you'll see that we're passing the integer 668506 to mix.
@@ -325,7 +331,7 @@ If you have a reference to a process ID, you can use
 Process.alive?(pid)
 {% endhighlight %}
 
-If you have a name instead of a pid, you can use
+If you have a name instead of a pid, you can use `whereis` to lookup the pid before passing it to `alive?:`
 
 {% highlight elixir %}
 process_name |> Process.whereis |> Process.alive?
@@ -335,7 +341,7 @@ It would probably be worth your time to check out all the <a href="http://elixir
 
 <a href="#toc">back to the top</a>
 
-# Wrapup
+# Closing
 
 I wrote this post for myself so that I can easily lookup the techniques I use frequently but still manage to forget.
 

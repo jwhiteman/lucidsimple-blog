@@ -12,9 +12,9 @@ comments: true
 > This little cheat sheet isn't meant to be comprehensive, but instead is a
 > list of the ExUnit techniques I use on almost every project.
 
-## TOC
+<h2 id="toc">Table of Contents</h2>
 
-1. <a href="#pending">Mark Tests as Pending</a>
+1. <a href="#pending">Skip Pending Tests</a>
 2. <a href="#tags">Run Only Certain Tests</a>
 3. <a href="#silence">Silence STDOUT</a>
 4. <a href="#service">Ensure a Service is Running</a>
@@ -26,7 +26,7 @@ comments: true
 10. <a href="#seed">Use the Test Seed to Fight Intermittent Errors</a>
 11. <a href="#alive">Check that your Process is Alive</a>
 
-<h3 id="pending">1. Mark Tests as Pending</h3>
+<h3 id="pending">1. Skip Pending Tests</h3>
 
 If you want to mark certain tests as _pending_ and automatically exclude them from your test runs, use `ExUnit.configure`
 in your test helper:
@@ -62,6 +62,8 @@ If you actually want to run your pending tests later on, you can do this:
 ```bash
 mix test --include pending
 ```
+
+<a href="#toc">back to the top</a>
 
 <h3 id="tags">2. Run Only Certain Tests</h3>
 
@@ -104,6 +106,8 @@ Similarly, you could _exclude_ your WIP tests this way:
 mix test --exclude wip
 ```
 
+<a href="#toc">back to the top</a>
+
 <h3 id="silence">3. Silence STDOUT</h3>
 
 I don't like it when my test output is littered with print or log messages.
@@ -134,6 +138,8 @@ In the above example "RAWR" will _not_ end up with the test results.
 
 Don't fret If your version of Elixir doesn't have CaptureIO; <a href="https://github.com/whatyouhide/redix/blob/master/test/test_helper.exs#L10-L18" target="blank">Other techniques may still work</a>.
 
+<a href="#toc">back to the top</a>
+
 <h3 id="service">4. Ensure a Service is Running</h3>
 
 This isn't ExUnit specific, per se, but if your test suite depends on a particular service running (e.g Redis), then you can
@@ -162,6 +168,8 @@ He uses `:get_tcp` to check that he can connect to port 6379. If the connection 
 
 Pretty cool.
 
+<a href="#toc">back to the top</a>
+
 <h3 id="load">5. Load Support Modules</h3>
 
 It's not a problem to create support modules directly in your test files, but if they get too big then
@@ -183,6 +191,8 @@ end
 He uses `File.ls` to fetch the names of all of the files living under `test/support,` and then applies `Code.require_file` to each one.
 
 Once again, this isn't ExUnit specific, but this simple technique pops up fairly frequently in my own projects.
+
+<a href="#toc">back to the top</a>
 
 <h3 id="assertions">6. Workhorse Assertions</h3>
 
@@ -211,16 +221,16 @@ end
 test "some service calls me back" do
   SomeService.work(self())
 
-  # assert that SomeService will send me {:result, "some-result"}
   assert_receive {:result, "some-result"}, 100
 end
 {% endhighlight %}
 
+The final example  might warrant an explanation: I'm asserting that my test process will eventually receive the term `{:result, "some-result"}` within 100 milliseconds. If the expected message doesn't arrive on time, the assertion will fail.
+
 `assert_receive` and its cousin <a href="http://elixir-lang.org/docs/v1.0/ex_unit/ExUnit.Assertions.html#assert_received/2" target="_blank">assert_received</a> are pretty crucial
 given that message passing is at the heart of Elixir and Erlang.
 
-Note that `assert_receive` takes a timeout as the second parameter, which is helpful if you need to wait a bit for a message to arrive at the mailbox.
-
+<a href="#toc">back to the top</a>
 
 <h3 id="callbacks">7. Setup and Other Callbacks</h3>
 
@@ -231,6 +241,8 @@ but in case it's not obvious:
 - `setup_all` is only run once
 - `on_exit` lives in a setup block and takes a function as an argument
 
+
+<a href="#toc">back to the top</a>
 
 <h3 id="start">8. Start or Stop the Application</h3>
 
@@ -261,6 +273,8 @@ To get things started again, you only need to call
 Application.start(:your_app_name)
 {% endhighlight %}
 
+<a href="#toc">back to the top</a>
+
 <h3 id="mocking">9. VCR and Mocking</h3>
 
 If you're coming from the Ruby world and would like something similar to <a href="https://github.com/vcr/vcr" target="_blank">VCR</a> to fake HTTP responses, then check out <a href="https://github.com/parroty/exvcr" target="_blank">ExVCR</a>.
@@ -268,6 +282,8 @@ If you're coming from the Ruby world and would like something similar to <a href
 Similarly, you can use <a href="https://github.com/eproxus/meck" target="_blank">Meck</a> if you want a nice mocking library.
 
 I have used both and they work very well, but you'll need to take care that you're not straying too far from <a href="http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/" target="_blank">the Elixir way</a> if you use them.
+
+<a href="#toc">back to the top</a>
 
 <h3 id="seed">10. Use the Test Seed to Fight Intermittent Errors</h3>
 
@@ -279,7 +295,7 @@ If a particular run results in errors that you don't normally see, you can run s
 in the _exact same order_ using that seed as a flag:
 
 ```bash
-mix test --seed <the-seed-that-caused-errors>
+mix test --seed <the-seed-that-triggered-errors>
 ```
 
 ![Using the Seed(/assets/seed.png)](/assets/seed.png)
@@ -289,6 +305,8 @@ If you look at the output above, you'll see that we're passing the integer 66850
 No matter how many times we run `mix test --seed 668506` we'll always get the tests run in the exact same order.
 
 Getting consistent results goes a long way in squashing pesky errors that only occur some of the time.
+
+<a href="#toc">back to the top</a>
 
 <h3 id="alive">11. Check that your Process is Alive</h3>
 
@@ -305,6 +323,8 @@ process_name |> Process.whereis |> Process.alive?
 {% endhighlight %}
 
 It would probably be worth your time to check out all the <a href="http://elixir-lang.org/docs/v1.1/elixir/Process.html" target="_blank">cool things</a> that Process can do when you get a chance.
+
+<a href="#toc">back to the top</a>
 
 # Wrapup
 

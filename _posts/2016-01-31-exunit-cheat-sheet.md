@@ -250,13 +250,20 @@ You'll use `on_exit` in the same way you might use _teardown_ in a different lan
 
 By default, your application will be started while your tests run.
 
-If you don't want that, then you could stop it in the test helper:
+If you don't want that behavior, then you could stop it in the test helper:
 
 {% highlight elixir %}
 ExUnit.start()
 
 Application.stop(:your_app_name)
 {% endhighlight %}
+
+This is sometimes beneficial if you find that your application is fighting
+a particular unit test. 
+
+Thankfully, you shouldn't have to do this too much
+if you're properly using your application config files. But it's still nice
+to have the option.
 
 In case you don't remember, the name of your app is listed in your mixfile:
 

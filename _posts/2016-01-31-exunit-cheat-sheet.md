@@ -12,7 +12,21 @@ comments: true
 > This little cheat sheet isn't meant to be comprehensive, but instead is a
 > list of the ExUnit techniques I use on almost every project.
 
-### 1. Mark Tests as Pending
+## TOC
+
+1. <a href="#pending">Mark Tests as Pending</a>
+2. <a href="#tags">Run Only Certain Tests</a>
+3. <a href="#silence">Silence STDOUT</a>
+4. <a href="#service">Ensure a Service is Running</a>
+5. <a href="#load">Load Support Modules</a>
+6. <a href="#assertions">Workhorse Assertions</a>
+7. <a href="#callbacks">Setup and Other Callbacks</a>
+8. <a href="#start">Start and Stop the Application</a>
+9. <a href="#mocking">VCR and Mocking</a>
+10. <a href="#seed">Use the Test Seed to Fight Intermittent Errors</a>
+11. <a href="#alive">Check that your Process is Alive</a>
+
+<h3 id="pending">1. Mark Tests as Pending</h3>
 
 If you want to mark certain tests as _pending_ and automatically exclude them from your test runs, use `ExUnit.configure`
 in your test helper:
@@ -49,7 +63,7 @@ If you actually want to run your pending tests later on, you can do this:
 mix test --include pending
 ```
 
-### 2. Run Only Certain Tests
+<h3 id="tags">2. Run Only Certain Tests</h3>
 
 If you had some WIP tests, for example, you could select _only_ those to run with the `only` flag:
 
@@ -90,7 +104,8 @@ Similarly, you could _exclude_ your WIP tests this way:
 mix test --exclude wip
 ```
 
-### 3. Silence STDOUT
+<h3 id="silence">3. Silence STDOUT</h3>
+
 I don't like it when my test output is littered with print or log messages.
 
 If you have Elixir version 1.1+ then you can use `ExUnit.CaptureIO` to keep
@@ -119,7 +134,7 @@ In the above example "RAWR" will _not_ end up with the test results.
 
 Don't fret If your version of Elixir doesn't have CaptureIO; <a href="https://github.com/whatyouhide/redix/blob/master/test/test_helper.exs#L10-L18" target="blank">Other techniques may still work</a>.
 
-### 4. Ensure a Service is Running
+<h3 id="service">4. Ensure a Service is Running</h3>
 
 This isn't ExUnit specific, per se, but if your test suite depends on a particular service running (e.g Redis), then you can
 test for it when your test helper gets loaded.
@@ -147,7 +162,7 @@ He uses `:get_tcp` to check that he can connect to port 6379. If the connection 
 
 Pretty cool.
 
-### 5. Load Support Modules
+<h3 id="load">5. Load Support Modules</h3>
 
 It's not a problem to create support modules directly in your test files, but if they get too big then
 you may want to move them to their own directory.
@@ -169,7 +184,7 @@ He uses `File.ls` to fetch the names of all of the files living under `test/supp
 
 Once again, this isn't ExUnit specific, but this simple technique pops up fairly frequently in my own projects.
 
-### 6. Workhorse Assertions
+<h3 id="assertions">6. Workhorse Assertions</h3>
 
 The best source on ExUnit assertions is still <a href="http://elixir-lang.org/docs/stable/ex_unit/ExUnit.Assertions.html" target="_blank">the docs at elixir-lang.org</a>.
 
@@ -196,6 +211,7 @@ end
 test "some service calls me back" do
   SomeService.work(self())
 
+  # assert that SomeService will send me {:result, "some-result"}
   assert_receive {:result, "some-result"}, 100
 end
 {% endhighlight %}
@@ -206,7 +222,7 @@ given that message passing is at the heart of Elixir and Erlang.
 Note that `assert_receive` takes a timeout as the second parameter, which is helpful if you need to wait a bit for a message to arrive at the mailbox.
 
 
-### 7. Setup and Other Callbacks
+<h3 id="callbacks">7. Setup and Other Callbacks</h3>
 
 I really can't do any better than the great explanation at the <a href="http://elixir-lang.org/docs/stable/ex_unit/ExUnit.Callbacks.html" target="_blank">elixir-lang.org</a> site,
 but in case it's not obvious:
@@ -216,7 +232,7 @@ but in case it's not obvious:
 - `on_exit` lives in a setup block and takes a function as an argument
 
 
-### 8. Starting or Stopping the Application
+<h3 id="start">8. Start or Stop the Application</h3>
 
 By default, your application will be started while your tests run.
 
@@ -245,7 +261,7 @@ To get things started again, you only need to call
 Application.start(:your_app_name)
 {% endhighlight %}
 
-### 9. VCR and Mocking
+<h3 id="mocking">9. VCR and Mocking</h3>
 
 If you're coming from the Ruby world and would like something similar to <a href="https://github.com/vcr/vcr" target="_blank">VCR</a> to fake HTTP responses, then check out <a href="https://github.com/parroty/exvcr" target="_blank">ExVCR</a>.
 
@@ -253,11 +269,11 @@ Similarly, you can use <a href="https://github.com/eproxus/meck" target="_blank"
 
 I have used both and they work very well, but you'll need to take care that you're not straying too far from <a href="http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/" target="_blank">the Elixir way</a> if you use them.
 
-### 10. Using the Seed and Intermittent Errors
+<h3 id="seed">10. Use the Test Seed to Fight Intermittent Errors</h3>
 
 Intermittent errors are probably unavoidable, especially if you're writing concurrent programs.
 
-To help fight this, ExUnit tests are run in a random order for via a seed integer.
+To help fight this, ExUnit tests are run in a random order via a seed integer.
 
 If a particular run results in errors that you don't normally see, you can run subsequent tests
 in the _exact same order_ using that seed as a flag:
@@ -273,6 +289,22 @@ If you look at the output above, you'll see that we're passing the integer 66850
 No matter how many times we run `mix test --seed 668506` we'll always get the tests run in the exact same order.
 
 Getting consistent results goes a long way in squashing pesky errors that only occur some of the time.
+
+<h3 id="alive">11. Check that your Process is Alive</h3>
+
+If you have a reference to a process ID, you can use
+
+{% highlight elixir %}
+Process.alive?(pid)
+{% endhighlight %}
+
+If you have a name instead of a pid, you can use
+
+{% highlight elixir %}
+process_name |> Process.whereis |> Process.alive?
+{% endhighlight %}
+
+It would probably be worth your time to check out all the <a href="http://elixir-lang.org/docs/v1.1/elixir/Process.html" target="_blank">cool things</a> that Process can do when you get a chance.
 
 # Wrapup
 

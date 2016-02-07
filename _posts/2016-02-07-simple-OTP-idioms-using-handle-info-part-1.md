@@ -8,9 +8,7 @@ comments: true
 
 > This is the first of an (eventual) series on simple OTP idioms, patterns and tricks.
 >
-> The first few posts will focus on ways to use handle_info.
->
-> Should be 3 minute read.
+> This weeks post should be 3 or 4 minute read.
 
 ## A Simple Example
 

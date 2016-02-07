@@ -52,7 +52,7 @@ Note that the return tuple from init has a 3rd element, which is `0.` In this ca
 
 The timeout will then trigger the `handle_info` callback allowing you to do your slow setup without making everyone else wait.
 
-As a bonus, you can be guaranteed that the `handle_info(:timeout)` message will be the first message that your server process receive.
+As a bonus, you can be guaranteed that the `handle_info(:timeout)` message will be the first message that your server process handles.
 
 You won't have to worry about other processes querying your server before its state has been fully setup.
 
@@ -80,7 +80,11 @@ end
 
 As you can see from above, the real mechanism for deferred initialization isn't the timeout - it's the use of handle_info.
 
-If the state of your server needs to be periodically updated (e.g a Cache), then setting things up with timeouts makes sense.
+handle_info deals with all out of band messages sent to your GenServer process, which includes timeouts.
+
+### Which Approach is Best?
+
+If the state of your server needs to be periodically updated on a schedule (e.g a Cache), then setting things up with timeouts makes sense.
 
 If the state of your server is expensive, but will only need to be set once, then the second approach would probably be clearer.
 

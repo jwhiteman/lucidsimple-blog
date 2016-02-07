@@ -8,7 +8,7 @@ comments: true
 
 > This is the first of an (eventual) series on simple OTP idioms, patterns and tricks.
 >
-> This weeks post should be 3 or 4 minute read.
+> This week's post should be 3 or 4 minute read.
 
 ## A Simple Example
 

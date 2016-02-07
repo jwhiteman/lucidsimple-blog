@@ -354,3 +354,5 @@ Here are some other articles you might be interested in:
 - <a href="http://elixir-lang.org/docs/master/ex_unit/ExUnit.html">The official ExUnit docs</a>
 - <a href="/2016/01/04/easy-mocking-in-elixir-with-meck.html">Easy Mocking in Elixir with Meck<a/>
 - <a href="/2014/08/14/binary-fixtures-with-wireshark.html">Creating Binary Fixtures with Wireshark</a>
+
+<div class="cta">Did you find this post helpful? If so, <a href="/subscribe">you may want to consider subscribing</a>.</div>

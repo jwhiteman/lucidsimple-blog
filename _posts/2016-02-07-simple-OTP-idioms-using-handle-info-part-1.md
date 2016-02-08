@@ -102,7 +102,7 @@ For everything else, the second approach is probably best.
 
 You'll see several variations of these techniques in open source projects if you hunt for them (see the links below).
 
-You don't have to use them yourself, but it can save you time if you kow how to spot them.
+You don't have to use them yourself, but it can save you time if you know how to spot them.
 
 ## Closing
 

@@ -15,7 +15,7 @@ some easy pattern that can be covered in a few minutes.
 
 This week we'll talk about how to use handle_info to slightly defer the initialization of an expensive to set up server.
 
-## A Simple Example
+## A simple example
 
 You're writing an application in Elixir and you've got a <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html">GenServer</a> that is costly to initialize:
 
@@ -39,7 +39,7 @@ The issue is made worse if there are multiple servers set up this way because OT
 
 We'd like to avoid this situation if we can.
 
-## One Possible Solution
+## One possible solution
 
 A common workaround is to trigger a timeout from init so that <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html#start_link/3">start_link</a> will return immeditely. The expensive initialization code is then moved to a <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html#c:handle_info/2">handle_info</a> callback:
 
@@ -70,7 +70,7 @@ If it's not, and your server receives a different message first, then your serve
 This seems unlikely, <a href="http://stackoverflow.com/questions/14648304/is-handle-info-guaranteed-to-executed-first-in-a-process-after-init-with-timeout">although it might be possible</a>.
 
 
-##  A Similar Approach
+##  A similar approach
 
 It's worth noting that you don't _have_ to use timeout to achieve similar results: 
 
@@ -96,7 +96,7 @@ As you can see from above, the real mechanism for deferred initialization isn't 
 
 Triggering a timeout is just one means to that; directly using <a href="http://elixir-lang.org/getting-started/processes.html#send-and-receive">send</a> to queue up a post initialization function (also via the handle_info callback) is another.
 
-### Which Approach is Best?
+### Which approach is best?
 
 If the state of your server needs to be periodically updated on a schedule (e.g a Cache), then setting things up with timeouts might be the way to go.
 

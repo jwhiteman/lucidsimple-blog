@@ -67,7 +67,7 @@ I've received conflicting information on whether or not the timeout handler will
 
 If it's not, and your server receives a different message first, then your server will most likely crash because its state will not have been fully initialized at that point.
 
-This seems <a href="http://stackoverflow.com/questions/14648304/is-handle-info-guaranteed-to-executed-first-in-a-process-after-init-with-timeout">very unlikely</a> though.
+This seems unlikely, <a href="http://stackoverflow.com/questions/14648304/is-handle-info-guaranteed-to-executed-first-in-a-process-after-init-with-timeout">although it might be possible</a>.
 
 
 ##  A Similar Approach
@@ -92,7 +92,9 @@ defmodule MyServer do
 end
 {% endhighlight %}
 
-As you can see from above, the real mechanism for deferred initialization isn't the timeout - it's using init to stuff a message into the mailbox that tells it finish its initialization _next_.
+As you can see from above, the real mechanism for deferred initialization isn't the timeout - it's using init to stuff a message into the mailbox that tells it to finish its initialization _next_.
+
+Triggering a timeout is just one means to that; directly using <a href="http://elixir-lang.org/getting-started/processes.html#send-and-receive">send</a> to queue up a post initialization function (also via the handle_info callback) is another.
 
 ### Which Approach is Best?
 

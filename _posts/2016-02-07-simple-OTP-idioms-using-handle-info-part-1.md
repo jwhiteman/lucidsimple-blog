@@ -6,7 +6,7 @@ categories: Elixir
 comments: true
 ---
 
-> This week's post should be less than a 5 minute read.
+> This week's post is a 5-minute read.
 
 This is the first of a series of posts on simple OTP idioms, patterns and tricks.
 
@@ -41,7 +41,7 @@ We'd like to avoid this situation if we can.
 
 ## One Possible Solution
 
-A common workaround is to trigger a timeout from init so that <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html#start_link/3">start_link</a> will return immeditely. The expensive init code is then moved to a <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html#c:handle_info/2">handle_info</a> callback:
+A common workaround is to trigger a timeout from init so that <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html#start_link/3">start_link</a> will return immeditely. The expensive initialization code is then moved to a <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html#c:handle_info/2">handle_info</a> callback:
 
 {% highlight elixir %}
 defmodule MyServer do
@@ -65,9 +65,9 @@ The timeout will trigger the <a href="http://erlang.org/doc/man/gen_server.html#
 
 I've received conflicting information on whether or not the timeout handler will be _guaranteed_ to be the first message handled by your server.
 
-If it's not, then your server will most likely crash because its state will not have been fully initialized at that point.
+If it's not, and your server receives a different message first, then your server will most likely crash because its state will not have been fully initialized at that point.
 
-This seems <a href="http://stackoverflow.com/questions/14648304/is-handle-info-guaranteed-to-executed-first-in-a-process-after-init-with-timeout">very unlikely</a>, although it's worth keeping in mind if you run into any strange bugs.
+This seems <a href="http://stackoverflow.com/questions/14648304/is-handle-info-guaranteed-to-executed-first-in-a-process-after-init-with-timeout">very unlikely</a> though.
 
 
 ##  A Similar Approach
@@ -92,9 +92,7 @@ defmodule MyServer do
 end
 {% endhighlight %}
 
-As you can see from above, the real mechanism for deferred initialization isn't the timeout - it's the use of handle_info.
-
-handle_info deals with all out of band messages sent to your GenServer process, which includes timeouts.
+As you can see from above, the real mechanism for deferred initialization isn't the timeout - it's using init to stuff a message into the mailbox that tells it finish its initialization _next_.
 
 ### Which Approach is Best?
 

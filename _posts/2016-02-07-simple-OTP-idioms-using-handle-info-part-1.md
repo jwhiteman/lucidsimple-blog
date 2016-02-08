@@ -1,18 +1,23 @@
 ---
 layout: post
-title:  "Simple OTP Idioms: using handle_info to defer initialization"
+title:  "Simple OTP Idioms: using handle_info (Part 1)"
 date:   2016-02-07 11:58:00
 categories: Elixir
 comments: true
 ---
 
-> This is the first of an (eventual) series on simple OTP idioms, patterns and tricks.
->
-> This week's post should be 3 or 4 minute read.
+> This week's post should be less than a 5 minute read.
+
+This is the first of a series of posts on simple OTP idioms, patterns and tricks.
+
+We'll start with a few posts on <a href="http://erldocs.com/18.0/stdlib/gen_server.html#handle_info/2">handle_info</a>, each week covering some
+some easy pattern that can be covered in a few minutes.
+
+This week we'll talk about how to use handle_info to slightly defer the initialization of an expensive to set up server.
 
 ## A Simple Example
 
-You're writing an application in Elixir and you've got a <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html">GenServer</a> that is expensive to initialize:
+You're writing an application in Elixir and you've got a <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html">GenServer</a> that is costly to initialize:
 
 {% highlight elixir %}
 defmodule MyServer do
@@ -26,11 +31,17 @@ defmodule MyServer do
 end
 {% endhighlight %}
 
-One possible issue with this is that calls to `MyServer.start_link` will block until the init function finishes. If you have a slow init function, then the caller will just have to wait.
+The problem with this is that 'MyServer.start_link' has to block until 'init' finishes.
 
-If you have a multiple servers setup this way, then their <a href="http://elixir-lang.org/docs/v1.0/elixir/Supervisor.html">Supervisor</a>  will be slowed down considerably as it starts each child serially.
+If 'init' is slow, then any caller trying to create an instance of 'MyServer' will be temporarily blocked.
 
-A common workaround is to trigger a timeout from init so that <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html#start_link/3">start_link</a> will return immeditely. The expensive setup code is then moved to a <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html#c:handle_info/2">handle_info</a> callback:
+The issue is made worse if there are multiple servers set up this way because OTP Supervisors start each of their children serially. So if you have 10 child servers that each take 6 seconds to initialize, then the supervisor will be blocked for a minute while it tries to get each one started.
+
+We'd like to avoid this situation if we can.
+
+## One Possible Solution
+
+A common workaround is to trigger a timeout from init so that <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html#start_link/3">start_link</a> will return immeditely. The expensive init code is then moved to a <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html#c:handle_info/2">handle_info</a> callback:
 
 {% highlight elixir %}
 defmodule MyServer do
@@ -50,11 +61,14 @@ end
 
 Note that the return tuple from init has a 3rd element, which is `0.` In this case, `0` simply means "timeout immediately".
 
-The timeout will then trigger the `handle_info` callback allowing you to do your slow setup without making everyone else wait.
+The timeout will trigger the <a href="http://erlang.org/doc/man/gen_server.html#Module:handle_cast-2">handle_info</a> callback allowing you to do your drawn out setup out of band without making everyone else wait.
 
-As a bonus, you can be guaranteed that the `handle_info(:timeout)` message will be the first message that your server process handles.
+I've received conflicting information on whether or not the timeout handler will be _guaranteed_ to be the first message handled by your server.
 
-You won't have to worry about other processes querying your server before its state has been fully setup.
+If it's not, then your server will most likely crash because its state will not have been fully initialized at that point.
+
+This seems <a href="http://stackoverflow.com/questions/14648304/is-handle-info-guaranteed-to-executed-first-in-a-process-after-init-with-timeout">very unlikely</a>, although it's worth keeping in mind if you run into any strange bugs.
+
 
 ##  A Similar Approach
 
@@ -84,13 +98,17 @@ handle_info deals with all out of band messages sent to your GenServer process, 
 
 ### Which Approach is Best?
 
-If the state of your server needs to be periodically updated on a schedule (e.g a Cache), then setting things up with timeouts makes sense.
+If the state of your server needs to be periodically updated on a schedule (e.g a Cache), then setting things up with timeouts might be the way to go.
 
-If the state of your server is expensive, but will only need to be set once, then the second approach would probably be clearer.
+For everything else, the second approach is probably best.
+
+You'll see several variations of these techniques in open source projects if you hunt for them (see the links below).
+
+You don't have to use them yourself, but it can save you time if you kow how to spot them.
 
 ## Closing
 
-Here are some examples of handle_info that you might be interested in:
+Here are some relevant examples of handle_info that you might be interested in:
 
 - <a href="https://github.com/undeadlabs/discovery/blob/master/lib/discovery/heartbeat.ex#L60-L68">heartbeat.ex in Discovery</a>
 - <a href="https://github.com/aetrion/erl-dns/blob/master/src/erldns_storage.erl#L67-L73">erldns_stroage.erl in erl-dns<a>
@@ -98,7 +116,11 @@ Here are some examples of handle_info that you might be interested in:
 - <a href="https://github.com/klacke/yaws/blob/master/src/yaws_session_server.erl#L253-L255">yaws_session_server.erl in Yaws webserver</a>
 - <a href="https://github.com/erlang/otp/blob/maint/lib/os_mon/src/disksup.erl#L153-L157">disksup.erl in OTP</a>
 
-If you read through the examples, it will be worth your time to checkout how each `init` function is working.
+If you read through the examples, it will be worth your time to checkout how each 'init' function is setup. A few are explicitly setting timeouts, while others use different approaches.
 
-Next week I'll write about a fairly common pattern I've seen using handle_info for polling and server loops.
+Next week's post will cover using handle_info for looping and polling.
+
+Thanks for following along.
+
+-- Jim
 

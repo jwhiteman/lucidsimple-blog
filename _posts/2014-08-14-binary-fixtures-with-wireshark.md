@@ -2,29 +2,36 @@
 layout: post
 title:  "Binary Fixtures with Wireshark"
 date:   2014-08-14 18:31:00
-categories: Erlang
+categories: Elixir
 comments: true
 ---
 
+> TL;DR - if you are new to Elixir and are anxious to write something that is _not_
+> a web application, then some basic knowledge of a packet analyzer along with
+> binary parsing and unit testing will help greatly.
+>
+> If you're not currently trying to parse a binary protocol (e.g writing your
+> own Redis client or DNS server), then this week's post probably won't be
+> valuable to you.
+
 ### Overview
 
-I'm a dumb Rails developer trying to stretch out of my normal comfort zone
-of responding to HTTP requests, querying databases, and spitting strings
-back at browsers.
+Elixir has some <a href="http://www.phoenixframework.org/">amazing</a> <a href="https://github.com/elixir-lang/ecto">tools</a> for web development,
+but lately I've been trying to stretch out of my normal comfort zone of responding to HTTP requests, querying databases, and spitting strings back at browsers.
 
 One skill that I've been exercising lately is parsing binary
 streams and files. In particular, I've been trying to understand DNS a little bit better
 and get a better feel for what is happening over the wire.
 
 There are several RFCs for DNS, but the two most important ones are RFCs [1034][rfc1034] and
-[1035][rfc1035]. The RFCs are the official spec, but if you've been spoiled by Ruby and IRB,
+[1035][rfc1035]. The RFCs are the official spec, but if you've been spoiled by IEx and IRB,
 you may struggle a little bit until you get something more interactive. Enter Wireshark.
 
 ### Wireshark
 
-[Wireshark][wireshark] is a pretty bad ass packet analyzer. After launching and
+[Wireshark][wireshark] is a pretty bad ass <a href="https://en.wikipedia.org/wiki/Packet_analyzer">packet analyzer</a>. After launching and
 selecting the interface or interfaces you want to listen on, Wireshark will render
-all the the "packets" as it sees them.
+all the the packets as it sees them.
 
 If you select an interface with a lot of activity on it, be prepared for a veritable
 _shit storm_ of data. Click on the screenshot to get a closer look.
@@ -103,30 +110,31 @@ of answers followed by 32 bits of the NSCOUNT and ARCOUNT, respectively.
 
 As a challange let's try to parse the number of answers that this binary has in its header.
 
-Let's open up an interactive Erlang session in the terminal with `erl`.
-Assume that the binary exported is in a file named 'dns-response'.
+Let's open up an interactive Elixir  session in the terminal with `iex`.
+Assume that the binary exported is in a file named 'dns-response.bin'.
 
-{% highlight erlang %}
-{ok, <<_Id:16,         %% Match the first 16 bits against _Id
-       _Details:16,    %% Match the next 16 bits against _Details
-       _NQ:16,         %% Match the next 16 bits against _NQ
-       NumAnswers:16,  %% This is the value we are interested in.
-       _Rest/binary>>  %% The rest of the bits. We can ignore them.
-} = file:read_file('dns-response').
+{% highlight elixir %}
+{:ok,
+  <<id::size(16),           #  Match the first 16 bits against _Id
+    details::size(16),      #  Match the next 16 bits against _Details
+    nq::size(16),           #  Match the next 16 bits against _NQ
+    num_answers::size(16),  #  This is the value we are interested in.
+    _rest::binary>>         #  The rest of the bits
+} = File.read('dns-response.bin')
 
-NumAnswers.
-%% => 5
+5 = num_answers
+# => 5
 {% endhighlight %}
 
-I won't dig into [binary parsing with Erlang][erbits], but the example should be readable.
-Evaluating `NumAnswers` gives us 5.
+I won't dig into [binary parsing with Elixir][erbits], but the example should be readable.
+Evaluating `num_answsers` gives us 5.
 
 Is that the correct number? Let's go back to the packet in Wireshark. Click the image
 to get a better view.
 
 [![DNS Answers](/assets/answers.png)](/assets/answers.png)
 
-Looks like we got it correct. Erlang bit syntax & Wireshark make it easy to get things right.
+Looks like we got it correct. Elixir bit syntax & Wireshark make it easy to get things right.
 
 ### Final Thoughts.
 
@@ -142,12 +150,13 @@ In theory, QDCOUNT could be any natural number. In practice [it's always one][pr
 I am still figuring out what works best _for me_, but for now, a combination of
 the spec and poking things with Wireshark is the best combination.
 
+This is allowing me to write a different class of applications that I previously wasn't able to - which
+is precisely why I wanted to learn Elixir in the first place.
+
 -- Jim
 
 [rfc1034]: http://tools.ietf.org/html/rfc1034
 [rfc1035]: http://tools.ietf.org/html/rfc1035
 [wireshark]: https://www.wireshark.org/download.html
-[erbits]: http://www.erlang.org/documentation/doc-5.6/doc/programming_examples/bit_syntax.html
+[erbits]: http://elixir-lang.org/getting-started/binaries-strings-and-char-lists.html#binaries-and-bitstrings
 [practice]: http://maradns.samiam.org/multiple.qdcount.html
-
-<div class="cta">Did you find this post helpful? If so, <a href="/subscribe">you may want to consider subscribing</a>.</div>

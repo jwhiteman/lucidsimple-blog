@@ -104,11 +104,7 @@ After the job has been processed we make another call to **schedule_poller**, wh
 
 So, in essence, our GenServer is recurring to get work done. Pretty cool.
 
+Here is a quick video actually running the code:
+
 <iframe src="https://player.vimeo.com/video/156190332" width="500" height="280" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <p><a href="https://vimeo.com/156190332">Creating a Looping GenServer</a> from <a href="https://vimeo.com/user29282688">Jim Whiteman</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-
-Here are some other posts you may be interested in:
-
-- <a href="http://stackoverflow.com/questions/30568806/which-otp-behavior-should-i-use-for-an-endless-repetition-of-tasks/30570202#30570202">Using OTP for "endless" repition</a>
-- <a href="http://stackoverflow.com/questions/32085258/how-to-run-some-code-every-few-hours-in-phoenix-framework/32097971#32097971">Scheduling code in Phoenix</a>
-- <a href="http://blog.lucidsimple.com/2016/02/07/simple-OTP-idioms-using-handle-info-part-1.html">Simple OTP Idioms: using handle_info (Part 1)</a>

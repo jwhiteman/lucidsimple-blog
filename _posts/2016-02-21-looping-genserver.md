@@ -7,9 +7,9 @@ description: "Creating a Looping GenServer"
 comments: true
 ---
 
-> This week's post is short.
+> This week's post is about a 5 minute read.
 >
-> It should be a 5 minute read.
+>  The video is a little over 2 minutes long.
 
 <a href="http://elixir-lang.org/docs/v1.1/elixir/GenServer.html">GenServers</a> are very easy to setup, but it's not immediately obvious how to implement
 a looping server that does work on its own.
@@ -103,6 +103,9 @@ Once a job appears in Redis, **dequeue_job** will pop it off so that the hypothe
 After the job has been processed we make another call to **schedule_poller**, which shoves **:poll** back into the mailbox causing the whole process to start over again.
 
 So, in essence, our GenServer is recurring to get work done. Pretty cool.
+
+<iframe src="https://player.vimeo.com/video/156190332" width="500" height="280" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/156190332">Creating a Looping GenServer</a> from <a href="https://vimeo.com/user29282688">Jim Whiteman</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
 Here are some other posts you may be interested in:
 

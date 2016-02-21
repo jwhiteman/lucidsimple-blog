@@ -104,7 +104,7 @@ After the job has been processed we make another call to **schedule_poller**, wh
 
 So, in essence, our GenServer is recurring to get work done. Pretty cool.
 
-Here is a quick video actually running the code:
+Here is a quick video that shows how the code runs:
 
 <iframe src="https://player.vimeo.com/video/156190332" width="500" height="280" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <p><a href="https://vimeo.com/156190332">Creating a Looping GenServer</a> from <a href="https://vimeo.com/user29282688">Jim Whiteman</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
